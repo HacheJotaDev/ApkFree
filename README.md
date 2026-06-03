@@ -21,15 +21,44 @@
 | AndroidManifest | Permisos de ads, billing y AD_ID eliminados |
 | targetSdkVersion | 36 → 34 (mejor compatibilidad) |
 
-## 📲 Instalación
+## 📲 Cómo instalar (IMPORTANTE)
 
-1. Descarga `HacheJota.apk` desde la sección de [Releases](../../releases)
-2. Habilita "Orígenes desconocidos" en tu dispositivo
-3. Instala el APK
+Esta app es un **split APK** (XAPK). Necesitas los 3 archivos APK para que funcione:
 
-## ⚠️ Nota
+1. `com.mca.iptvplayer.new.apk` (base - ya incluido, parcheado)
+2. `config.arm64_v8a.apk` (librerías nativas - DE TU XAPK ORIGINAL)
+3. `config.hdpi.apk` (recursos de pantalla - DE TU XAPK ORIGINAL)
 
-Este APK es la versión base (sin librerías nativas de ABI). Para funcionamiento completo en dispositivos ARM/ARM64, necesitarás también los split APKs de ABI.
+### Método 1: Usando SAI (Split APKs Installer) - RECOMENDADO
+
+1. Descarga [SAI](https://github.com/Aefyr/SAI) desde Google Play o F-Droid
+2. Extrae los archivos `config.arm64_v8a.apk` y `config.hdpi.apk` de tu XAPK original
+3. En SAI, selecciona "Instalar APKs"
+4. Selecciona los 3 archivos APK juntos
+5. ⚠️ **Necesitas firmar todos los APKs con la misma clave** antes de instalar
+
+### Método 2: Usando MT Manager
+
+1. Abre MT Manager
+2. Extrae los 3 APKs del XAPK original
+3. Reemplaza el APK base con el parcheado
+4. Firma TODOS los APKs con la misma clave
+5. Instala usando "Instalar como XAPK"
+
+### Método 3: Firmar y fusionar (Avanzado)
+
+1. Descarga el APK base parcheado desde Releases
+2. Extrae `config.arm64_v8a.apk` y `config.hdpi.apk` de tu XAPK original
+3. Firma TODOS los APKs con la misma clave usando apksigner o MT Manager
+4. Empaqueta como XAPK e instala con SAI
+
+## ⚠️ Nota importante sobre firmas
+
+Android requiere que TODOS los split APKs estén firmados con la **misma clave**. 
+El APK base parcheado está firmado con una clave nueva, así que necesitas:
+
+1. Firmar también `config.arm64_v8a.apk` y `config.hdpi.apk` con la misma clave
+2. Usa MT Manager o apktool para resignar los config APKs
 
 ---
 *Liberado por HacheJota*
