@@ -1,50 +1,35 @@
-# HacheJota APK Free
+# 🔓 HacheJota IPTV - APK Liberado
 
-Reproductor IPTV basado en Xtream Codes API - **Sin VIP, Sin Anuncios, 100% Libre**
+**XTREAM IPTV v2.0.16** - Liberado por HacheJota
 
-Desarrollado por **HacheJota**
+## ✅ Modificaciones
 
-## Caracteristicas
+- **VIP/Premium eliminado**: Todas las funciones Pro desbloqueadas
+- **Anuncios eliminados**: Google AdMob removido completamente
+- **Suscripciones eliminadas**: Google Billing removido
+- **Compatibilidad corregida**: targetSdkVersion bajado a 34 (Android 14)
+- **Split APK corregido**: Removido requiredSplitTypes para instalación directa
 
-- TV en Vivo con categorias
-- Peliculas (VOD) con detalles
-- Series con temporadas y episodios
-- Soporte para Xtream Codes API y listas M3U
-- Reproductor de video integrado con controles completos
-- Busqueda de contenido
-- **Sin anuncios, sin restricciones VIP**
-- Interfaz oscura moderna
-- Notificaciones push (FCM)
+## 📋 Cambios técnicos
 
-## Conexion
+| Cambio | Detalle |
+|--------|---------|
+| PLibBridge | shouldCastPremium = siempre false (Pro siempre activo) |
+| CastingBridge | getCheckProStatus = siempre true (Pro verificado) |
+| OpenScreenBridge | Pantallas de premium/promo deshabilitadas |
+| PromoMethodChannel | Flujo de compra de suscripción deshabilitado |
+| AndroidManifest | Permisos de ads, billing y AD_ID eliminados |
+| targetSdkVersion | 36 → 34 (mejor compatibilidad) |
 
-### Xtream Codes
-Ingresa tu servidor, usuario y contrasena de tu servicio IPTV.
+## 📲 Instalación
 
-### Lista M3U
-Pega la URL de tu lista M3U para cargar los canales y peliculas.
-
-## Descargar APK
-
-Ve a la seccion [Releases](https://github.com/HacheJotaDev/ApkFree/releases) para descargar la ultima version de `HacheJota.apk`.
-
-### Instalacion
-1. Descarga `HacheJota.apk` desde la ultima release
-2. Activa "Origenes desconocidos" en tu dispositivo Android
+1. Descarga `HacheJota.apk` desde la sección de [Releases](../../releases)
+2. Habilita "Orígenes desconocidos" en tu dispositivo
 3. Instala el APK
 
-## Compilacion manual
+## ⚠️ Nota
 
-```bash
-flutter pub get
-flutter build apk --release
-```
+Este APK es la versión base (sin librerías nativas de ABI). Para funcionamiento completo en dispositivos ARM/ARM64, necesitarás también los split APKs de ABI.
 
-El APK se generara en `build/app/outputs/flutter-apk/app-release.apk`
-
-## Build automatico
-
-Cada push a la rama `main` activa GitHub Actions que:
-1. Compila el APK en modo release
-2. Lo renombra a `HacheJota.apk`
-3. Crea una release automatica con el APK adjunto
+---
+*Liberado por HacheJota*
